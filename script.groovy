@@ -1,12 +1,14 @@
 def buildApp() 
 {
     echo "Building the Application"
+    sh "chmod +x gradlew"
     sh "./gradlew build"
 }
 
 def testApp()
 {
     echo "Testing the Application"
+    sh "chmod +x gradlew"
     sh "./gradlew test"
 }
 
