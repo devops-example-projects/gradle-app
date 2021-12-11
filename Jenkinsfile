@@ -51,6 +51,13 @@ pipeline
         }
         stage("Build Docker Image")
         {
+            when
+            {
+                expression
+                {
+                    BRANCH_NAME == "main"
+                }
+            }
             steps
             {
                 script
@@ -61,6 +68,13 @@ pipeline
         }
         stage("Push Image to Docker Hub")
         {
+            when
+            {
+                expression
+                {
+                    BRANCH_NAME == "main"
+                }
+            }
             steps
             {
                 script
@@ -71,6 +85,13 @@ pipeline
         }
         stage("Remove Image")
         {
+            when
+            {
+                expression
+                {
+                    BRANCH_NAME == "main"
+                }
+            }
             steps
             {
                 script
