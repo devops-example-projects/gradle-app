@@ -15,7 +15,7 @@ pipeline
                 }
             }
         }
-        stage("Build")
+        stage("Build Application")
         {
             steps
             {
@@ -25,13 +25,43 @@ pipeline
                 }
             }
         }
-        stage("Test")
+        stage("Test Application")
         {
             steps
             {
                 script
                 {
                     gv.testApp()
+                }
+            }
+        }
+        stage("Build Docker Image")
+        {
+            steps
+            {
+                script
+                {
+                    gv.buildImage()
+                }
+            }
+        }
+        stage("Push Image to Docker Hub")
+        {
+            steps
+            {
+                script
+                {
+                    gv.pushImage()
+                }
+            }
+        }
+        stage("Remove Image")
+        {
+            steps
+            {
+                script
+                {
+                    gv.removeImage()
                 }
             }
         }
