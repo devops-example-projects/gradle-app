@@ -17,6 +17,13 @@ pipeline
         }
         stage("Build Application")
         {
+            when
+            {
+                expression
+                {
+                    BRANCH_NAME == "main"
+                }
+            }
             steps
             {
                 script
@@ -27,6 +34,13 @@ pipeline
         }
         stage("Test Application")
         {
+            when
+            {
+                expression
+                {
+                    BRANCH_NAME == "main"
+                }
+            }
             steps
             {
                 script
