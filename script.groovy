@@ -1,24 +1,3 @@
-def buildApp() 
-{
-    echo "Building the Application"
-    sh "chmod +x gradlew"
-    sh "./gradlew build"
-}
-
-def testApp()
-{
-    echo "Testing the Application"
-    sh "chmod +x gradlew"
-    sh "./gradlew test"
-}
-
-def buildImage()
-{
-    echo "Building the Docker Image"
-    sh "docker build -t gradle-app ."
-    sh "docker tag gradle-app adityadevops/gradle-app:${env.BUILD_ID}"
-}
-
 def pushImage()
 {
     echo "Pushing the Image to Docker Hub"
