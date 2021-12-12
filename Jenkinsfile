@@ -44,7 +44,7 @@ pipeline
             {
                 script
                 {
-                    buildImage()
+                    buildImage 'adityadevops/gradle-app'
                 }
             }
         }
